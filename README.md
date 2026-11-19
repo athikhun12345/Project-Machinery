@@ -25,12 +25,11 @@
 
 | Path | Purpose | Files included |
 | :--- | :--- | :--- |
-| `hardware/mechanical/` | ไฟล์โมเดล CAD 3 มิติ (SolidWorks 2023 / STEP) สำหรับนำเข้าใน Simscape | `Ground.step`, `R2 Brick5.step`, `R2 Brick7.step`, `R2 Brick9.step`, `R2 Brick15.step` |
-| `simulation/` | ไฟล์โมเดลจำลอง Simulink/Simscape Multibody, สคริปต์พล็อตกราฟ และข้อมูลผลลัพธ์ | `PickandPlace.slx`, `Machinery_MATLAB_Class3_Plot.m`, `matlab.mat` |
-| `media/` | ภาพไดอะแกรม, ภาพประกอบ Mask, ภาพกราฟผลลัพธ์, ภาพ Render และวิดีโอจำลองการเคลื่อนที่ | `S__11845641.jpg`, `4_bars.png`, `6_bars.png`, `Pick_and_Place.png`, `Render.jpg`, `Mechanism.avi` |
-| `docs/` | เอกสารรายงานสรุปผลโครงงานและรายละเอียดประกอบ | `Report.docx` (`report detail.docx`), `Report.pdf` |
+| `hardware/mechanical/` | ไฟล์โมเดล CAD 3 มิติ (SolidWorks 2023 / STEP) สำหรับนำเข้าใน Simscape | `Ground.step`, `R2 Brick5.step`, `R2 Brick7.step`, `R2 Brick9.step`, `R2 Brick15.step`[cite: 1] |
+| `simulation/` | ไฟล์โมเดลจำลอง Simulink/Simscape Multibody, สคริปต์พล็อตกราฟ และรูปภาพประกอบ Mask | `PickandPlace.slx`, `Machinery_MATLAB_Class3_Plot.m`, `4_bars.png`, `6_bars.png`, `Pick_and_Place.png`[cite: 1] |
+| `media/` | ภาพไดอะแกรมการคำนวณ, ภาพบล็อกและกราฟผลลัพธ์ (4 Bars / 6 Bars) และวิดีโอจำลองการเคลื่อนที่ | `Calculation.png` (ไดอะแกรมกลไก)[cite: 1], `Simulink.png`, `PickandPlace.avi` (วิดีโอการเคลื่อนที่)[cite: 4], โฟลเดอร์ `4 Bars/` (`Blocks`, `Follower`, `Input`)[cite: 2], โฟลเดอร์ `6 Bars/` (`6 Graph`, `90Deg`, `Blocks`, `Correct Data`)[cite: 3] |
+| `docs/` | เอกสารรายงานสรุปผลโครงงานและรายละเอียดประกอบ | `Report.docx`, `Report.pdf` *(ถ้ามี)* |
 | `README.md` | รายงานสรุปภาพรวมของโครงงาน วิธีรัน และผลการวิเคราะห์ทั้งหมด | `README.md` |
-
 ---
 
 ## Kinematic model & preliminary analysis
