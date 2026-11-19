@@ -12,8 +12,8 @@
 
 - **Project name:** 90-Degree Pick and Place Mechanism (10-Bar Planar Linkage)
 - **Problem / purpose:** ออกแบบและจำลองกลไกหยิบ-วางชิ้นงานทำมุม 90 องศา (90° Pick and Place Mechanism) โดยใช้ต้นกำลังขับเคลื่อนแบบหมุนต่อเนื่องเพียงตัวเดียว (1-DOF) เพื่อแปลงการหมุนของข้อเหวี่ยง (Crank) ให้ปลายแขนทำงานเคลื่อนที่ระหว่างตำแหน่งแนวตั้งและแนวนอนที่ทำมุมตั้งฉากกัน พร้อมวิเคราะห์ Position, Velocity, Acceleration, Workspace และ Actuator Torque ด้วย Simscape Multibody
-- **Team:** นายอธิคุณ เนตรสุวรรณ (ดำเนินการเดี่ยว — รับผิดชอบส่วนพื้นฐานจลนศาสตร์และการจำลองด้วย MATLAB / Simscape Multibody)
-- **Scope:** การวิเคราะห์พื้นฐานอย่าง Kinematic Diagram, DoF, Grashof Condition และการจำลองพลศาสตร์หลายวัตถุ Simscape Multibody Simulation *ไม่รวมส่วน Symbolic Math และการสร้าง Physical Prototype*
+- **Team:** นายอธิคุณ เนตรสุวรรณ (ทำเดี่ยว — รับผิดชอบ MATLAB / Simscape Multibody)
+- **Scope:** การวิเคราะห์พื้นฐานอย่าง Kinematic Diagram, DoF, Grashof Condition และการจำลองด้วย Simscape Multibody Simulation *เนื่องทำคนเดียวจึงรวมส่วน Symbolic Math และการสร้าง Physical Prototype*
 - **Status:** Completed (Simulation & Documentation)
 - **Last updated:** 2026-11-19
 
