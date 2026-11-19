@@ -1,8 +1,8 @@
 # 90-Degree Pick and Place Mechanism
 
-**นายอธิคุณ เนตรสุวรรณ (Athikhun Netrsuwarn)**
-/รหัสนิสิต 6730564421
-วิชา 2103322 Design of Mechanism (Mech Machinery)
+**นายอธิคุณ เนตรสุวรรณ (Athikhun Netrsuwarn)**  
+รหัสนิสิต 6730564421  
+วิชา 2103322 Design of Mechanism (Mech Machinery)  
 ภาควิชาวิศวกรรมเครื่องกล คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย (ภาคการศึกษาที่ 1/2569)  
 
 
