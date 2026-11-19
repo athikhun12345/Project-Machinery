@@ -27,6 +27,7 @@
 | `hardware/mechanical/` | ไฟล์โมเดล CAD 3 มิติ สำหรับนำเข้าใน Simscape | `Ground.step`, `R2 Brick5.step`, `R2 Brick7.step`, `R2 Brick9.step`, `R2 Brick15.step` |
 | `simulation/` | ไฟล์โมเดลจำลอง Simulink/Simscape Multibody, สคริปต์พล็อตกราฟ และรูปภาพประกอบ Mask | `PickandPlace.slx`, `Machinery_MATLAB_Class3_Plot.m`, `4_bars.png`, `6_bars.png`, `Pick_and_Place.png` |
 | `media/` | ภาพไดอะแกรมการคำนวณ, ภาพบล็อกและกราฟผลลัพธ์ (`4 Bars` / `6 Bars`) และวิดีโอจำลองการเคลื่อนที่ | `Calculation.jpg` (หา DOF และพิสูจน์ Grashof), `Simulink.png`, `PickandPlace.avi` (วิดีโอการเคลื่อนที่), Folder `4 Bars/` (`Blocks`, `Follower`, `Input`), Folder `6 Bars/` (`6 Graph`, `90Deg`, `Blocks`, `Correct Data`) |
+| `docs/` | เอกสารรายงานสรุปผลโครงงานและรายละเอียดประกอบ | `Report.docx`, `Report.pdf` |
 | `README.md` | รายงานสรุปภาพรวมของโครงงาน วิธีรัน และผลการวิเคราะห์ทั้งหมด | `README.md` |
 
 ---
@@ -60,7 +61,15 @@
 - จำนวนข้อต่อแบบ Lower Pair (Revolute Joints): $J_1 = 13$ ได้แก่ $O_2, O_4, O_5, O_8, A, B, C, D, E, F, G, H, I$
 - จำนวนข้อต่อแบบ Higher Pair: $J_2 = 0$
 
-$$\begin{aligned} \text{DoF} &= 3(n - 1) - 2J_1 - J_2 \\ &= 3(10 - 1) - 2(13) - 0 \\ &= 3(9) - 26 - 0 \\ &= 27 - 26 \\ &= 1 \end{aligned}$$
+$$
+\begin{aligned}
+\text{DoF} &= 3(n - 1) - 2J_1 - J_2 \\
+&= 3(10 - 1) - 2(13) - 0 \\
+&= 3(9) - 26 - 0 \\
+&= 27 - 26 \\
+&= 1
+\end{aligned}
+$$
 
 **สรุปผล:** กลไกมีองศาอิสระเท่ากับ **$\text{DoF} = 1$** จึงสามารถควบคุมการเคลื่อนที่ของกลไกทั้งระบบได้อย่างสมบูรณ์ด้วยต้นกำลังขับเคลื่อนแบบหมุนเพียงตัวเดียวที่จุด $O_2$
 
@@ -77,7 +86,13 @@ $$\begin{aligned} \text{DoF} &= 3(n - 1) - 2J_1 - J_2 \\ &= 3(10 - 1) - 2(13) - 
 
 ตรวจสอบอสมการเงื่อนไข Grashof ($l + s < p + q$):
 
-$$\begin{aligned} l + s &< p + q \\ 169.19 + 50.00 &< 150.00 + 70.00 \\ 219.19\text{ mm} &< 220.00\text{ mm} \end{aligned}$$
+$$
+\begin{aligned}
+l + s &< p + q \\
+169.19 + 50.00 &< 150.00 + 70.00 \\
+219.19\text{ mm} &< 220.00\text{ mm}
+\end{aligned}
+$$
 
 **สรุปผล:** เนื่องจาก $l + s < p + q$ ($219.19\text{ mm} < 220.00\text{ mm}$) และชิ้นส่วนที่สั้นที่สุด ($s$, Link 2) ยึดติดกับฐาน (Ground, Link 1) ชุดขับเคลื่อนจึงเป็นไปตามเงื่อนไข **Grashof Mechanism** ประเภท **Crank-Rocker Mechanism** โดย Link 2 สามารถหมุนได้ครบรอบ $360^\circ$ อย่างต่อเนื่อง เพื่อขับให้ Link 4 แกว่งไป-กลับและส่งกำลังต่อไปยังชุด 6-Bar Linkage
 
@@ -87,7 +102,7 @@ $$\begin{aligned} l + s &< p + q \\ 169.19 + 50.00 &< 150.00 + 70.00 \\ 219.19\t
 
 แบบจำลองในไฟล์ `simulation/PickandPlace.slx` ถูกจัดโครงสร้างเป็น 2 Subsystem หลัก (`4 bars` และ `6 bars`) เชื่อมต่อกับ `World Frame`, `Solver Configuration` และ `Mechanism Configuration`
 
-![Top-Level Simulink Model](media/Simulink.png)
+![Top-Level Simulink Model](media/Simulink.jpg)
 
 ### Simulation parameters
 
@@ -104,13 +119,13 @@ $$\begin{aligned} l + s &< p + q \\ 169.19 + 50.00 &< 150.00 + 70.00 \\ 219.19\t
 ### Subsystem architecture
 
 #### 4-Bar Driving Subsystem (`4 bars`)
-![4 Bars Internal Blocks](media/4%20Bars/Blocks.png)
+![4 Bars Internal Blocks](media/4%20Bars/Blocks.jpg)
 
 #### 6-Bar Linkage Subsystem (`6 bars`)
-![6 Bars Internal Blocks](media/6%20Bars/Blocks.png)
+![6 Bars Internal Blocks](media/6%20Bars/Blocks.jpg)
 
 #### End-Effector Sensing & Data Collection (`Parameter Result`)
-![Correct Data Subsystem](media/6%20Bars/Correct%20Data.png)
+![Correct Data Subsystem](media/6%20Bars/Correct%20Data.jpg)
 
 ---
 
@@ -120,7 +135,71 @@ $$\begin{aligned} l + s &< p + q \\ 169.19 + 50.00 &< 150.00 + 70.00 \\ 219.19\t
 
 ### 1. Input crank & driving torque analysis (Joint $O_2$)
 
-![Input O2 Angle and Torque](media/4%20Bars/Input.png)
+![Input O2 Angle and Torque](media/4%20Bars/Input.jpg)
 
 - **Input angle ($\theta_2$):** แสดงผลผ่านฟังก์ชัน `mod(deg, 360)` วนรอบในช่วง $[0^\circ, 360^\circ]$ ซ้ำทุกๆ $3.1416\text{ s}$ ยืนยันการหมุนครบรอบต่อเนื่องของก้าน Crank
-- **Driving torque ($T_2$):** แม้ว่าแบบจำลองนี้จะไม่มีภาระแรงภายนอก (External payload) กระทำที่ปลายแขน แต่ภายใต้แรงโน้มถ่วงและมวลความเฉื่อยของชิ้นส่วนทั้งหมด
+- **Driving torque ($T_2$):** แม้ว่าแบบจำลองนี้จะไม่มีภาระแรงภายนอก (External payload) กระทำที่ปลายแขน แต่ภายใต้แรงโน้มถ่วงและมวลความเฉื่อยของชิ้นส่วนทั้งหมด ($\rho = 1000\text{ kg/m}^3$) มอเตอร์ที่จุด $O_2$ ต้องออกแรงบิดขับเคลื่อน ($T_2$) แกว่งเป็นคาบในช่วงประมาณ **$-0.05$ ถึง $+0.05\text{ N}\cdot\text{m}$**
+- ค่าแรงบิดที่เรียบและมีขนาดต่ำตลอดทั้ง $360^\circ$ ยืนยันว่ามุมส่งถ่ายกำลัง (Transmission Angle) ของกลไกอยู่ในเกณฑ์ดี ไม่เกิดอาการขัดตัวของข้อต่อ
+
+### 2. Follower / Rocker analysis (Joint $O_4$)
+
+![Follower O4 Kinematics](media/4%20Bars/Follower.jpg)
+
+- **Angular position ($\theta_4$):** ก้านโยก Link 4 แกว่งไป-กลับระหว่างประมาณ **$-103^\circ$ ถึง $-3^\circ$** (มุมกวาดรวม $\Delta\theta_4 \approx 100^\circ$)
+- **Angular velocity ($\omega_4$):** แกว่งในช่วงประมาณ **$-1.6$ ถึง $+1.6\text{ rad/s}$** โดยตัดผ่านศูนย์ทุกครั้งที่ก้านโยกถึงจุดกลับทิศทางบนสุดและล่างสุด
+- **Angular acceleration ($\alpha_4$):** แกว่งในช่วงประมาณ **$-4.5$ ถึง $+11.9\text{ rad/s}^2$** โดยเกิดจุดยอดความเร่งเชิงมุมที่ $t \approx 1.74\text{ s}$ และ $4.88\text{ s}$ ซึ่งตรงกับจังหวะดีดกลับ (Quick-return stroke) ของกลไก 4-Bar และส่งผลให้เกิด Peak Acceleration ที่ปลายแขน $a_x$ ในเวลาเดียวกัน
+
+### 3. End-Effector (Point $I$) 90° trajectory & workspace
+
+![90 Degree Trajectory](media/6%20Bars/90Deg.jpg)
+
+- เส้นวิถีการเคลื่อนที่บนระนาบ $X\text{-}Z$ ยืนยันว่าปลายแขนที่จุด $I$ เคลื่อนที่ขึ้นในแนวดิ่งสู่ตำแหน่งบนสุด ($x \approx 0.000\text{ m}, z \approx 0.248\text{ m}$) และกวาดโค้งทำมุม $90^\circ$ ไปยังตำแหน่งขวาสุดในแนวระดับ ($x \approx 0.156\text{ m}, z \approx 0.128\text{ m}$) ได้อย่างแม่นยำและซ้ำรอยเดิมทุกรอบการหมุน
+
+### 4. End-Effector (Point $I$) position, velocity, and acceleration
+
+![End-Effector Kinematics 6 Graphs](media/6%20Bars/6%20Graph.jpg)
+
+| ตัวแปร (Parameter) | ค่าต่ำสุด (Min) | ค่าสูงสุด (Max) | ช่วงการเปลี่ยนแปลง / พฤติกรรมสำคัญ |
+| :--- | :---: | :---: | :--- |
+| **Position $x$** | $\approx 0.000\text{ m}$ | $\approx 0.156\text{ m}$ | ระยะเคลื่อนที่แนวนอน $\Delta x \approx 156\text{ mm}$ |
+| **Position $z$** | $\approx 0.128\text{ m}$ | $\approx 0.248\text{ m}$ | ระยะยกในแนวดิ่ง $\Delta z \approx 120\text{ mm}$ |
+| **Velocity $v_x$** | $\approx -0.14\text{ m/s}$ | $\approx +0.23\text{ m/s}$ | ลดลงเข้าใกล้ $0$ ที่ตำแหน่งบนสุดและขวาสุดเพื่อเปลี่ยนทิศทาง |
+| **Velocity $v_z$** | $\approx -0.16\text{ m/s}$ | $\approx +0.20\text{ m/s}$ | ตัดผ่านศูนย์ที่จุดสูงสุด ($z \approx 0.248\text{ m}$) และช่วงค้างระดับล่าง |
+| **Acceleration $a_x$** | $\approx -1.70\text{ m/s}^2$ | $\approx +0.33\text{ m/s}^2$ | เกิดความหน่วงสูงสุด (Peak deceleration) ขณะกลับทิศทางฝั่งขวา ($t \approx 1.74\text{ s}, 4.88\text{ s}$) |
+| **Acceleration $a_z$** | $\approx -0.70\text{ m/s}^2$ | $\approx +0.36\text{ m/s}^2$ | เปลี่ยนแปลงสอดคล้องกับจังหวะยกขึ้นและกดลงในแนวดิ่ง |
+
+**ข้อสังเกตเชิงวิศวกรรม:**
+- เมื่อจุดปลาย $I$ เคลื่อนที่ขึ้นสู่ตำแหน่งสูงสุดด้านบน ($z \approx 0.248\text{ m}$ ที่ $t \approx 0.35\text{ s}$ และ $3.50\text{ s}$) ตำแหน่งในแกน $x$ จะนิ่งอยู่ใกล้ $0\text{ m}$ (ช่วง Dwell แนวนอน) ทำให้ปลายแขนเข้าประชิดจุดหยิบ/วางด้านบนในแนวดิ่งได้อย่างแม่นยำ
+- เมื่อเคลื่อนที่กวาดทำมุม $90^\circ$ ไปยังตำแหน่งขวาสุด ($x \approx 0.156\text{ m}$ ที่ $t \approx 1.70\text{ s}$ และ $4.85\text{ s}$) ความสูงในแกน $z$ จะค้างอยู่ในระดับต่ำประมาณ $0.13\text{ m}$ เพื่อเข้าประชิดชิ้นงานฝั่งขวาในแนวระดับ
+
+### 5. 3D overview & animation preview
+
+![3D Mechanism Overview](simulation/Pick_and_Place.png)
+
+- **Animation video:** ดูวิดีโอจำลองการทำงานตลอด 2 รอบการหมุน (ส่งออกจาก Simscape Multibody Explorer) ได้ที่ [`media/PickandPlace.avi`](media/PickandPlace.avi)
+
+---
+
+## Getting started (How to run)
+
+1. ดาวน์โหลดหรือ Clone Repository นี้ลงในเครื่อง
+2. เปิดโปรแกรม **MATLAB** (แนะนำเวอร์ชัน R2024a ขึ้นไป พร้อมติดตั้ง **Simulink** และ **Simscape Multibody**)
+3. ตั้งค่า **Current Folder** ใน MATLAB ให้ชี้ไปยังโฟลเดอร์หลักของโปรเจกต์ และคลิกขวาที่โฟลเดอร์หลักเลือก **Add to Path > Selected Folders and Subfolders** เพื่อให้ Simulink ค้นหาไฟล์ `.step` ใน `hardware/mechanical/` และไฟล์รูป Mask (`4_bars.png`, `6_bars.png`) ใน `simulation/` ได้ครบถ้วน
+4. เปิดไฟล์ `simulation/PickandPlace.slx` แล้วกดปุ่ม **Run**
+5. ตรวจสอบแอนิเมชัน 3 มิติในหน้าต่าง **Mechanics Explorer** และดับเบิลคลิกดูกราฟที่บล็อก Scope ภายใน `4 bars` (`Deg , Torque`, `Deg, Omega, Alpha`) และ `6 bars/Parameter Result` (`XY Graph`, `Scope`)
+
+---
+
+## Assumptions, safety, and validation
+
+- **Modeling assumptions:** ชิ้นส่วนทุกชิ้นเป็นวัตถุแข็งเกร็ง (Rigid bodies) ไม่คิดการโก่งตัวหรือระยะคลอน (Clearance) ที่หมุดข้อต่อ, ไม่คิดแรงเสียดทานที่ Revolute Joints, ความเร็วเชิงมุมขาเข้าคงที่ $\omega_2 = 2\text{ rad/s}$ และไม่มีภาระชิ้นงานภายนอก (No-load condition)
+- **Kinematic validation:** ตรวจสอบความถูกต้องของแบบจำลองเบื้องต้นจากเงื่อนไข Grashof ($219.19 < 220.00\text{ mm}$), ค่า $\text{DoF} = 1$, ความสอดคล้องของคาบเวลา ($T = \pi \approx 3.1416\text{ s}$ ต่อรอบ) และความสัมพันธ์ระหว่างอนุพันธ์ของกราฟตำแหน่ง ความเร็ว และความเร่ง (ตำแหน่งสูงสุด/ต่ำสุดของ $x, z, \theta_4$ ตรงกับจุดตัดศูนย์ของ $v_x, v_z, \omega_4$ ทุกจุด)
+- **Safety considerations (หากนำไปสร้างจริงในอนาคต):** ควรติดตั้งการ์ดป้องกันจุดหนีบ (Pinch points) บริเวณข้อต่อกรรไกรของชุด 6-Bar และติดตั้งสวิตช์จำกัดระยะ (Limit switches) หากปรับใช้กับโหลดจริงที่มีแรงเฉื่อยสูงบริเวณจุดกลับทิศทางฝั่งขวา ($a_{x,\text{peak}} \approx -1.70\text{ m/s}^2$)
+
+---
+
+## Collaboration and file practices
+
+- จัดแยกไฟล์ต้นฉบับที่แก้ไขได้ (`.step`, `.slx`, `.m`) และไฟล์สื่อแสดงผล (`.png`, `.jpg`, `.avi`) ตามโครงสร้างโฟลเดอร์ของ Template
+- ระบุหน่วยวัด (`m`, `mm`, `deg`, `rad/s`, `m/s`, `m/s^2`, `N*m`) กำกับบนสัญญาณและกราฟทุกชุดอย่างชัดเจน
+- ไม่ commit ไฟล์ชั่วคราวของ MATLAB/Simulink (`slprj/`, `*.slxc`, `*.autosave`)
