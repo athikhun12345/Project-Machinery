@@ -1,17 +1,19 @@
 # 90-Degree Pick and Place Mechanism
 
-**นายอธิคุณ เนตรสุวรรณ (Athikhun Netrsuwarn)** · รหัสนิสิต `6730564421`  
-วิชา **2103-322 Design of Mechanism (Mech Machinery)** · ภาควิชาวิศวกรรมเครื่องกล คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย (ภาคการศึกษาที่ 1/2569)  
-*Generated from [cratchat/mechanical-engineering-project-template](https://github.com/cratchat/mechanical-engineering-project-template)*
+**นายอธิคุณ เนตรสุวรรณ (Athikhun Netrsuwarn)**
+รหัสนิสิต 6730564421
+วิชา 2103322 Design of Mechanism (Mech Machinery)
+ภาควิชาวิศวกรรมเครื่องกล คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย (ภาคการศึกษาที่ 1/2569)  
+
 
 ---
 
 ## Project overview
 
 - **Project name:** 90-Degree Pick and Place Mechanism (10-Bar Planar Linkage)
-- **Problem / purpose:** ออกแบบและจำลองกลไกหยิบ-วางชิ้นงานทำมุม 90 องศา (90° Pick and Place Mechanism) โดยใช้ต้นกำลังขับเคลื่อนแบบหมุนต่อเนื่องเพียงตัวเดียว (1-DOF) เพื่อแปลงการหมุนของข้อเหวี่ยง (Crank) ให้ปลายแขนทำงานเคลื่อนที่ระหว่างตำแหน่งแนวตั้งและแนวนอนที่ทำมุมตั้งฉากกัน พร้อมวิเคราะห์ตำแหน่ง (Position), ความเร็ว (Velocity), ความเร่ง (Acceleration), ขอบเขตการทำงาน (Workspace) และแรงบิดขับเคลื่อน (Actuator Torque) ด้วย Simscape Multibody
+- **Problem / purpose:** ออกแบบและจำลองกลไกหยิบ-วางชิ้นงานทำมุม 90 องศา (90° Pick and Place Mechanism) โดยใช้ต้นกำลังขับเคลื่อนแบบหมุนต่อเนื่องเพียงตัวเดียว (1-DOF) เพื่อแปลงการหมุนของข้อเหวี่ยง (Crank) ให้ปลายแขนทำงานเคลื่อนที่ระหว่างตำแหน่งแนวตั้งและแนวนอนที่ทำมุมตั้งฉากกัน พร้อมวิเคราะห์ Position, Velocity, Acceleration, Workspace และ Actuator Torque ด้วย Simscape Multibody
 - **Team:** นายอธิคุณ เนตรสุวรรณ (ดำเนินการเดี่ยว — รับผิดชอบส่วนพื้นฐานจลนศาสตร์และการจำลองด้วย MATLAB / Simscape Multibody)
-- **Scope:** ครอบคลุมการวิเคราะห์พื้นฐาน (Kinematic Diagram, DoF, Grashof Condition) และการจำลองพลศาสตร์หลายวัตถุ (Simscape Multibody Simulation) *ไม่รวมส่วนการคำนวณเชิงสัญลักษณ์ (Symbolic Math) และการสร้างชิ้นงานต้นแบบจริง (Physical Prototype)*
+- **Scope:** การวิเคราะห์พื้นฐานอย่าง Kinematic Diagram, DoF, Grashof Condition และการจำลองพลศาสตร์หลายวัตถุ Simscape Multibody Simulation *ไม่รวมส่วน Symbolic Math และการสร้าง Physical Prototype*
 - **Status:** Completed (Simulation & Documentation)
 - **Last updated:** 2026-11-19
 
